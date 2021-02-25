@@ -3,7 +3,7 @@ import { View, StatusBar, Text, Button, Image } from 'react-native';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import klogo from "./klogo.png"
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 // import Routes from "./Routes";
 // import DropdownAlert from 'react-native-dropdownalert';
@@ -48,11 +48,12 @@ function KonjosScreen({ navigation }) {
   );
 }
 
-const Stack = createStackNavigator();
+// const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 
 const App = () => <NavigationContainer>
-  <Stack.Navigator initialRouteName="Home" screenOptions={{
+  <Tab.Navigator initialRouteName="Home" screenOptions={{
     headerStyle: {
       backgroundColor: '#1FC58E',
     },
@@ -61,10 +62,12 @@ const App = () => <NavigationContainer>
       fontWeight: 'bold',
     },
   }}>
-    <Stack.Screen name="Home" component={HomeScreen} options={{ headerTitle: props => <LogoTitle {...props} /> }} />
-    <Stack.Screen name="Profile" component={ProfileScreen} options={{ headerTitle: props => <LogoTitle {...props} /> }} />
-    <Stack.Screen name="Konjos" component={KonjosScreen} options={{ headerTitle: props => <LogoTitle {...props} /> }} />
-  </Stack.Navigator>
+    <Tab.Screen name="Home" component={HomeScreen} options={{
+      headerTitle: props => <LogoTitle {...props} />
+    }} />
+    <Tab.Screen name="Profile" component={ProfileScreen} options={{ headerTitle: props => <LogoTitle {...props} /> }} />
+    <Tab.Screen name="Konjos" component={KonjosScreen} options={{ headerTitle: props => <LogoTitle {...props} /> }} />
+  </Tab.Navigator>
   {/* <View style={{ flex: 1 }}>
   <Routes />
     <DropdownAlert
