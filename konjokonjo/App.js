@@ -4,6 +4,9 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import AntDesign from 'react-native-vector-icons/AntDesign'
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 
 // import Routes from "./Routes";
 // import DropdownAlert from 'react-native-dropdownalert';
@@ -48,26 +51,44 @@ function KonjosScreen({ navigation }) {
   );
 }
 
-// const Stack = createStackNavigator();
+const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
+function TabStack({ navigation }) {
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+          if (route.name === 'Home') {
+            iconName = focused ? 'home' : 'home';
+          } else if (route.name === 'Profile') {
+            iconName = focused ? 'user-cog' : 'user-cog';
+          } else if (route.name === 'Konjos') {
+            iconName = focused ? 'users' : 'users';
+          }
+          // You can return any component that you like here!
+          return route.name == 'Home' ? <AntDesign name={iconName} size={size} color={color} /> : route.name == 'Profile' ? <FontAwesome5 name={iconName} size={size} color={color} /> : <FontAwesome5 name={iconName} size={size} color={color} />
+        },
+      })}
+      tabBarOptions={{
+        activeTintColor: 'tomato',
+        inactiveTintColor: 'gray',
+      }}
+    >
+      <Tab.Screen name="Home" component={HomeScreen} options={{
+        headerTitle: props => <LogoTitle {...props} />
+      }} />
+      <Tab.Screen name="Konjos" component={KonjosScreen} options={{ tabBarBadge: 3, headerTitle: props => <LogoTitle {...props} /> }} />
+      <Tab.Screen name="Profile" component={ProfileScreen} options={{ headerTitle: props => <LogoTitle {...props} /> }} />
+    </Tab.Navigator>
+  )
+}
 
 const App = () => <NavigationContainer>
-  <Tab.Navigator initialRouteName="Home" screenOptions={{
-    headerStyle: {
-      backgroundColor: '#1FC58E',
-    },
-    headerTintColor: '#fff',
-    headerTitleStyle: {
-      fontWeight: 'bold',
-    },
-  }}>
-    <Tab.Screen name="Home" component={HomeScreen} options={{
-      headerTitle: props => <LogoTitle {...props} />
-    }} />
-    <Tab.Screen name="Profile" component={ProfileScreen} options={{ headerTitle: props => <LogoTitle {...props} /> }} />
-    <Tab.Screen name="Konjos" component={KonjosScreen} options={{ headerTitle: props => <LogoTitle {...props} /> }} />
-  </Tab.Navigator>
+  <Stack.Navigator mode="modal">
+    <Stack.Screen name="Home" component={TabStack} options={{ headerTitle: LogoTitle, headerStyle: { backgroundColor: 'green' } }} />
+  </Stack.Navigator>
   {/* <View style={{ flex: 1 }}>
   <Routes />
     <DropdownAlert
