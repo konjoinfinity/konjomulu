@@ -4,20 +4,13 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import AntDesign from 'react-native-vector-icons/AntDesign'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
-
 // import Routes from "./Routes";
-// import DropdownAlert from 'react-native-dropdownalert';
-// import { AlertHelper } from './AlertHelper';
+
 
 function LogoTitle() {
   return (
-    <Image
-      style={{ width: 40, height: 40 }}
-      source={require('./klogo.png')}
-    />
+    <Image style={{ width: 40, height: 40 }} source={require('./klogo.png')} />
   );
 }
 
@@ -67,12 +60,11 @@ function TabStack({ navigation }) {
           } else if (route.name === 'Konjos') {
             iconName = focused ? 'users' : 'users';
           }
-          // You can return any component that you like here!
-          return route.name == 'Home' ? <AntDesign name={iconName} size={size} color={color} /> : route.name == 'Profile' ? <FontAwesome5 name={iconName} size={size} color={color} /> : <FontAwesome5 name={iconName} size={size} color={color} />
+          return route.name == 'Home' ? <FontAwesome5 name={iconName} size={size} color={color} style={{ paddingTop: 10 }} /> : route.name == 'Profile' ? <FontAwesome5 name={iconName} size={size} color={color} style={{ paddingTop: 10 }} /> : <FontAwesome5 name={iconName} size={size} color={color} style={{ paddingTop: 10 }} />
         },
       })}
       tabBarOptions={{
-        activeTintColor: 'tomato',
+        activeTintColor: '#ACC086',
         inactiveTintColor: 'gray',
       }}
     >
@@ -85,18 +77,12 @@ function TabStack({ navigation }) {
   )
 }
 
-const App = () => <NavigationContainer>
-  <Stack.Navigator mode="modal">
-    <Stack.Screen name="Home" component={TabStack} options={{ headerTitle: LogoTitle, headerStyle: { backgroundColor: 'green' } }} />
-  </Stack.Navigator>
-  {/* <View style={{ flex: 1 }}>
-  <Routes />
-    <DropdownAlert
-        defaultContainer={{ padding: 8, paddingTop: StatusBar.currentHeight, flexDirection: 'row' }}
-        ref={ref => AlertHelper.setDropDown(ref)}
-        onClose={() => AlertHelper.invokeOnClose()}
-        closeInterval={5000} />
-</View> */}
-</NavigationContainer>;
+const App = () => <View style={{ flex: 1 }}>
+  <NavigationContainer>
+    <Stack.Navigator mode="modal">
+      <Stack.Screen name="Home" component={TabStack} options={{ headerTitle: LogoTitle, headerStyle: { backgroundColor: '#4AA748' } }} />
+    </Stack.Navigator>
+  </NavigationContainer>
+</View>;
 
 export default App;
