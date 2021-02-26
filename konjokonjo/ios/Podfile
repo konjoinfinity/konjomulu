@@ -10,6 +10,8 @@ target 'konjokonjo' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'RNReactNativeHapticFeedback', :path => '../node_modules/react-native-haptic-feedback'
+
   # target 'konjokonjoTests' do
   #   inherit! :complete
   #   # Pods for testing

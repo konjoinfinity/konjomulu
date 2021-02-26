@@ -33,7 +33,7 @@ class NoMoreCards extends Component {
     render() {
         return (
             <View>
-                <Text style={styles.noMoreCardsText}>No Communities Nearby</Text>
+                <Text style={styles.noMoreCardsText}>No Konjos Nearby</Text>
                 <TouchableOpacity style={{ backgroundColor: "#81c784", borderRadius: 15, padding: 10, margin: 20 }} onPress={this.props.handleRefresh}>
                     <Text style={{ color: "white", fontSize: 22, textAlign: "center" }}>Refresh</Text>
                 </TouchableOpacity>

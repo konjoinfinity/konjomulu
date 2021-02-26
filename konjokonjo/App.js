@@ -83,7 +83,7 @@ class App extends React.Component {
       <View style={{ flex: 1 }}>
         <NavigationContainer>
           <Stack.Navigator mode="modal">
-            <Stack.Screen name="Home" component={TabStack} options={{ headerTitle: LogoTitle, headerStyle: { backgroundColor: '#4AA748' } }} />
+            <Stack.Screen name="Home" component={TabStack} options={{ headerTitle: LogoTitle, headerStyle: { backgroundColor: '#81c784' } }} />
           </Stack.Navigator>
         </NavigationContainer>
       </View>
