@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from 'react';
 import {
     View, StatusBar, Text, Button, Image, TouchableOpacity, StyleSheet,
     Platform, SafeAreaView, KeyboardAvoidingView, TextInput, Dimensions, PixelRatio, Alert, ScrollView
@@ -14,7 +14,7 @@ class Card extends React.Component {
     render() {
         return (
             <View style={[styles.card, { backgroundColor: this.props.backgroundColor }]}>
-                <View style={{ alignSelf: "flex-start", width: Dimensions.get('window').width * 0.80, padding: 15 }}>
+                <View style={{ alignSelf: "flex-start", width: Dimensions.get('window').width * 0.8, padding: 15 }}>
                     <Text style={{ flexDirection: "row", alignContent: "flex-start", paddingTop: Dimensions.get('window').height * 0.55, fontSize: 18, textAlign: "left", fontWeight: "bold", paddingBottom: 3 }}>{this.props.text}</Text>
                     <Text style={{ flexDirection: "row", alignContent: "flex-start", fontSize: 17, textAlign: "left", paddingBottom: 3 }}>{this.props.members}</Text>
                     <Text style={{ flexDirection: "row", alignContent: "flex-start", fontSize: 14, textAlign: "left", paddingBottom: 3 }}>{this.props.desc}</Text>
@@ -50,6 +50,10 @@ class Home extends React.Component {
             cards: []
         };
         this.handleRefresh = this.handleRefresh.bind(this);
+    }
+
+    componentDidMount() {
+        this.handleRefresh()
     }
 
     handleRefresh() {
@@ -135,20 +139,18 @@ class Home extends React.Component {
 
     render() {
         return (
-            <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-                <View style={{ flex: 1 }}>
-                    <SwipeCards
-                        cards={this.state.cards}
-                        renderCard={(cardData) => <Card {...cardData} />}
-                        renderNoMoreCards={() => <NoMoreCards handleRefresh={this.handleRefresh} />}
-                        stack={true}
-                        handleYup={this.handleYup}
-                        handleNope={this.handleNope}
-                        handleMaybe={this.handleMaybe}
-                        hasMaybeAction={true}
-                        smoothTransition={false}
-                    />
-                </View>
+            <View style={{ flex: 1 }}>
+                <SwipeCards
+                    cards={this.state.cards}
+                    renderCard={(cardData) => <Card {...cardData} />}
+                    renderNoMoreCards={() => <NoMoreCards handleRefresh={this.handleRefresh} />}
+                    stack={true}
+                    handleYup={this.handleYup}
+                    handleNope={this.handleNope}
+                    handleMaybe={this.handleMaybe}
+                    hasMaybeAction={true}
+                    smoothTransition={false}
+                />
             </View>
         );
     }
@@ -188,12 +190,13 @@ const styles = StyleSheet.create({
         textAlign: "center"
     },
     card: {
-        marginTop: Dimensions.get('window').height * 0.03,
+        marginTop: Dimensions.get('window').height * 0.15,
         justifyContent: 'center',
         alignItems: 'center',
-        height: Dimensions.get('window').height * 0.76,
-        width: Dimensions.get('window').width * 0.85,
-        borderRadius: 15
+        height: Dimensions.get('window').height * 0.55,
+        width: Dimensions.get('window').width * 0.7,
+        borderRadius: 15,
+        paddingBottom: Dimensions.get('window').height * 0.16
     },
     noMoreCardsText: {
         fontSize: 22,
