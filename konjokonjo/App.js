@@ -8,9 +8,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import EIcon from 'react-native-vector-icons/Entypo'
 import OIcon from 'react-native-vector-icons/Octicons'
 import IIcon from 'react-native-vector-icons/Ionicons'
-
-
-var screenWidth = Dimensions.get('window').width * PixelRatio.get(), screenHeight = Dimensions.get('window').height * PixelRatio.get()
+import Home from './Home'
 
 function LogoTitle() {
   return (
@@ -20,10 +18,7 @@ function LogoTitle() {
 
 function HomeScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text style={{ fontSize: 20, padding: Dimensions.get('window').height * 0.04 }}>Konjo LifeSystem</Text>
-      <TextInput style={styles.textInput} />
-    </View>
+    <Home />
   );
 }
 
