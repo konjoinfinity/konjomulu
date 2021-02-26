@@ -113,7 +113,7 @@ function TabStack({ navigation }) {
       }}
     >
       <Tab.Screen name="Konjo" component={HomeScreen} options={{ headerTitle: props => <LogoTitle {...props} /> }} />
-      <Tab.Screen name="Knowledge" component={KnowledgeScreen} options={{ tabBarBadge: 3, headerTitle: props => <LogoTitle {...props} /> }} />
+      <Tab.Screen name="Knowledge" component={KnowledgeScreen} options={{ tabBarBadge: 8, headerTitle: props => <LogoTitle {...props} /> }} />
       <Tab.Screen name="Settings" component={SettingsScreen} options={{ headerTitle: props => <LogoTitle {...props} /> }} />
     </Tab.Navigator>
   )
