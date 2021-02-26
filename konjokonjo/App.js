@@ -9,6 +9,8 @@ import EIcon from 'react-native-vector-icons/Entypo'
 import OIcon from 'react-native-vector-icons/Octicons'
 import IIcon from 'react-native-vector-icons/Ionicons'
 import Home from './Home'
+import Profile from './Profile'
+import Konjos from './Konjos'
 
 function LogoTitle() {
   return (
@@ -24,62 +26,13 @@ function HomeScreen({ navigation }) {
 
 function KnowledgeScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <ScrollView>
-        <Text style={{ fontSize: 20, padding: Dimensions.get('window').height * 0.04, textAlign: 'center' }}>Knowledge</Text>
-        <View style={styles.card}>
-          <Button title="Doc 1" onPress={() => Alert.alert('open doc 1')} />
-        </View>
-        <View style={{ padding: Dimensions.get('window').height * 0.009 }}></View>
-        <View style={styles.card}>
-          <Button title="Doc 2" onPress={() => Alert.alert('open doc 2')} />
-        </View>
-        <View style={{ padding: Dimensions.get('window').height * 0.009 }}></View>
-        <View style={styles.card}>
-          <Button title="Doc 3" onPress={() => Alert.alert('open doc 3')} />
-        </View>
-        <View style={{ padding: Dimensions.get('window').height * 0.009 }}></View>
-        <View style={styles.card}>
-          <Button title="Doc 4" onPress={() => Alert.alert('open doc 4')} />
-        </View>
-        <View style={{ padding: Dimensions.get('window').height * 0.009 }}></View>
-        <View style={styles.card}>
-          <Button title="Doc 5" onPress={() => Alert.alert('open doc 5')} />
-        </View>
-        <View style={{ padding: Dimensions.get('window').height * 0.009 }}></View>
-        <View style={styles.card}>
-          <Button title="Doc 6" onPress={() => Alert.alert('open doc 6')} />
-        </View>
-        <View style={{ padding: Dimensions.get('window').height * 0.009 }}></View>
-        <View style={styles.card}>
-          <Button title="Doc 7" onPress={() => Alert.alert('open doc 7')} />
-        </View>
-        <View style={{ padding: Dimensions.get('window').height * 0.009 }}></View>
-        <View style={styles.card}>
-          <Button title="Doc 8" onPress={() => Alert.alert('open doc 8')} />
-        </View>
-      </ScrollView>
-    </View>
+    <Konjos />
   );
 }
 
 function SettingsScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text style={{ fontSize: 20, padding: Dimensions.get('window').height * 0.04, textAlign: 'center' }}>Settings</Text>
-      <View style={{ padding: Dimensions.get('window').height * 0.01 }}></View>
-      <View style={styles.settingcard}>
-        <Button title="Setting 1" onPress={() => Alert.alert('adjust setting 1')} />
-      </View>
-      <View style={{ padding: Dimensions.get('window').height * 0.01 }}></View>
-      <View style={styles.settingcard}>
-        <Button title="Setting 2" onPress={() => Alert.alert('adjust setting 2')} />
-      </View>
-      <View style={{ padding: Dimensions.get('window').height * 0.01 }}></View>
-      <View style={styles.settingcard}>
-        <Button title="Setting 3" onPress={() => Alert.alert('adjust setting 3')} />
-      </View>
-    </View>
+    <Profile />
   );
 }
 
