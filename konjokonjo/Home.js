@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 import 'react-native-gesture-handler';
 import SwipeCards from 'react-native-swipe-cards'
+import ReactNativeHapticFeedback from "react-native-haptic-feedback";
 
 class Card extends React.Component {
     constructor(props) {
@@ -57,6 +58,7 @@ class Home extends React.Component {
     }
 
     handleRefresh() {
+        ReactNativeHapticFeedback.trigger("impactLight", { enableVibrateFallback: true });
         var cards = [
             {
                 key: 0,
@@ -129,12 +131,15 @@ class Home extends React.Component {
 
     handleYup(card) {
         console.log(`Join for ${card.text}`)
+        ReactNativeHapticFeedback.trigger("impactLight", { enableVibrateFallback: true });
     }
     handleNope(card) {
         console.log(`Nope for ${card.text}`)
+        ReactNativeHapticFeedback.trigger("impactLight", { enableVibrateFallback: true });
     }
     handleMaybe(card) {
         console.log(`Maybe for ${card.text}`)
+        ReactNativeHapticFeedback.trigger("impactLight", { enableVibrateFallback: true });
     }
 
     render() {
