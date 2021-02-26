@@ -193,8 +193,8 @@ const styles = StyleSheet.create({
         marginTop: Dimensions.get('window').height * 0.15,
         justifyContent: 'center',
         alignItems: 'center',
-        height: Dimensions.get('window').height * 0.55,
-        width: Dimensions.get('window').width * 0.7,
+        height: Dimensions.get('window').height * 0.6,
+        width: Dimensions.get('window').width * 0.75,
         borderRadius: 15,
         paddingBottom: Dimensions.get('window').height * 0.16
     },
